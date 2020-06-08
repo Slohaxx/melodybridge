@@ -6,6 +6,24 @@ For ease of access, we will set up SSH access with a new user to remote from put
 
 If you dont have putty, it's available here; https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
+Become Root user
+
+sudo su
+
+Create a new user and password for the project 
+"""
+useradd lolz
+passwd lolz
+[enter password]
+[confirm paasword
+"""
+
+mkdir /home/lolz
+mkdir /home/lolz/.ssh
+chmod 700 /home/lolz/.ssh
+
+
+
 https://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers
 https://stribika.github.io/2015/01/04/secure-secure-shell.html
 
