@@ -6,109 +6,71 @@ For ease of access, we will set up SSH access with a new user to remote from put
 
 If you dont have putty, it's available here; https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
-Become Root user
+Become Root user and then give root a complex password. you can use https://passwordsgenerator.net/ 
 
 sudo su
+passwd 
+Password example: ^5Ha8z_MeM.-a^j"
 
-Create a new user and password for the project 
+Create a new user and password and give user bash shell. Also with visudo we give the user sudo permissions 
 """
 useradd lolz
 passwd lolz
 [enter password]
 [confirm paasword
 """
+chsh -s /bin/bash lolz
+visudo
 
-mkdir /home/lolz
-mkdir /home/lolz/.ssh
-chmod 700 /home/lolz/.ssh
+lolz ALL=(ALL:ALL) ALL
 
+Now edit the SSH config file to allow for password authentication. Find option PasswordAuthentication to yes on line 52
+nano ssh /etc/ssh/sshd_config
+service ssh restart
 
+Find your IP Address then connect with the new user on putty
+curl icanhazip.com
+104.155.171.240
 
-https://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers
-https://stribika.github.io/2015/01/04/secure-secure-shell.html
+once connected we continue the set up. Update and upgrade the machine
 
-apt-get update
-apt-get upgrade
+sudo apt-get update
+sudo apt-get upgrade
 
-passwd D\N.8uth%x"4h9a^
+Create user the user directories, and one for our ssh keys
 
-Change the root password to something long and complex. You won’t need to remember it, just store it 
-somewhere secure - this password will only be needed if you lose the ability to log in over ssh or lose your sudo password.
+sudo mkdir /home/lolz
+sudo mkdir /home/lolz/.ssh
+sudo chmod 700 /home/lolz/.ssh
 
+Install Fail2ban. Fail2ban is a daemon that monitors login attempts to a server and blocks suspicious activity as it occurs. It’s well configured out of the box.
 
-
-The above gets us started on the right foot. Updates and such
-
-Install Fail2ban
-
-apt-get install fail2ban
-
-Fail2ban is a daemon that monitors login attempts to a server and blocks suspicious activity as it occurs. It’s well configured out of the box.
-
-Now, let’s set up your login user. Feel free to name the user something besides ‘deploy’, it’s just a convention we use:
-
-
-useradd vpn
-mkdir /home/vpn
-mkdir /home/vpn/.ssh
-chmod 700 /home/vpn/.ssh 
-
-useradd lolz
-mkdir /home/lolz
-mkdir /home/lolz/.ssh
-chmod 700 /home/lolz/.ssh
-
-
+sudo apt-get install fail2ban
 
 Require public key authentication
 
-The days of passwords are over. You’ll enhance security and ease of use in one fell swoop by ditching those passwords and employing public key 
-authentication for your user accounts.
+Run Puttygen and generate a new key. Once generated copy the public key and paste it in the below text file. This is where our public key will be help and matched publically with our private key. It needs to be formatted in a specific way, so its best to directly copy then paste into text file, save and exit. Save the private key, as that will be needed to use with putty when logging in
 
+sudo nano /home/lolz/.ssh/authorized_keys
 
-nano /home/vpn/.ssh/authorized_keys
+sudo chmod 600 /home/lolz/.ssh/authorized_keys
+sudo chown lolz:lolz /home/lolz -R
 
-nano /home/lolz/.ssh/authorized_keys
+Test The New User & Enable Sudo. Enter lolz as auto login and the private key in the auth tab of putty
 
-Add the contents of the id_rsa.pub on your local machine and any other public keys that you want to have access to this server to this file.
-
-
-chmod 600 /home/lolz/.ssh/authorized_keys
-chown lolz:lolz /home/lolz -R
-
-Test The New User & Enable Sudo
-
-Now test your new account logging into your new server with the lolz user (keep the terminal window with the root login open). If you’re successful, switch 
-back to the terminal with the root user active and set a sudo password for your login user:
-
-
-passwd lolz wsecretpassword
-
-Set a complex password - you can either store it somewhere secure or make it something memorable to the team. This is the password you’ll use to sudo.
-
-visudo
-
-Comment all existing user/group grant lines and add:
-
-root    ALL=(ALL) ALL
-
-lolz ALL=(ALL) ALL
-
-The above grants sudo access to the deploy user when they enter the proper password.
+Now test your new account logging into your new server with the lolz user (keep the terminal window with the root login open). 
 
 Lock Down SSH
 
 Configure ssh to prevent password & root logins and lock ssh to particular IPs:
 
-nano /etc/ssh/sshd_config
+sudo nano /etc/ssh/sshd_config
 
 Add these lines to the file, inserting the ip address from where you will be connecting:
 
-port: high random number, not default 4269
 LoginGraceTime 10
 PermitRootLogin no
 PasswordAuthentication no
-AllowUsers ***@(your-ip) **@(another-ip-if-any)
 
 Now restart ssh:
 
@@ -118,59 +80,16 @@ Set Up A Firewall
 
 No secure server is complete without a firewall. Ubuntu provides ufw, which makes firewall management easy. Run:
 
-ufw allow from {your-ip} to any port 4269 219.88.238.146
-ufw allow 80
-ufw allow 443
-ufw allow 4269
-ufw allow 6697
-ufw enable
+sudo ufw allow 22
+sudo ufw allow 23
+sudo ufw allow 80
+sudo ufw allow 443
+sudo ufw allow 6667
+sudo ufw allow 6697
+sudo ufw allow 8000
+sudo ufw allow 8005
+sudo ufw enable
 
-This sets up a basic firewall and configures the server to accept traffic over port 80 and 443. You may wish to add more ports depending on what your server is going to do.
+Thats it, for now. A very basic set up. 
 
-Enable Automatic Security Updates
-
-apt-get install unattended-upgrades
-
-nano /etc/apt/apt.conf.d/10periodic
-
-Update the file to look like this:
-
-APT::Periodic::Update-Package-Lists "1";
-APT::Periodic::Download-Upgradeable-Packages "1";
-APT::Periodic::AutocleanInterval "7";
-APT::Periodic::Unattended-Upgrade "1";
-
-One more config file to edit:
-
-nano /etc/apt/apt.conf.d/50unattended-upgrades
-
-Update the file to look like below. You should probably keep updates disabled and stick with security updates only:
-
-Unattended-Upgrade::Allowed-Origins {
-        "Ubuntu lucid-security";
-//      "Ubuntu lucid-updates";
-};
-
-Install Logwatch To Keep An Eye On Things
-
-Logwatch is a daemon that monitors your logs and emails them to you. This is useful for tracking and detecting intrusion. If someone were to access your server, the logs that are emailed to you will be helpful in determining what happened and when - as the logs on your server might have been compromised.
-
-apt-get install logwatch
-
-nano /etc/cron.daily/00logwatch
-
-add this line:
-
-/usr/sbin/logwatch --output mail --mailto test@gmail.com --detail high
-
-All Done!
-
-To make recovery in case of failure easier, an additional sshd will
-be started on port '1022'. If anything goes wrong with the running
-ssh you can still connect to the additional one.
-If you run a firewall, you may need to temporarily open this port. As
-this is potentially dangerous it's not done automatically. You can
-open the port with e.g.:
-'iptables -I INPUT -p tcp --dport 1022 -j ACCEPT'
-
-
+We now have a new user and ssh key access with other access being denied. 
