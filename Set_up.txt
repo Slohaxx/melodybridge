@@ -1,4 +1,10 @@
-﻿first i followed these instructions
+Enter the VM instaces page from google cloud - https://console.cloud.google.com/compute/instances
+
+Launch SSH with the newly created VM instance, it will open a new terminal with access to the machine.
+
+For ease of access, we will set up SSH access with a new user to remote from putty.
+
+If you dont have putty, it's available here; https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
 https://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers
 https://stribika.github.io/2015/01/04/secure-secure-shell.html
