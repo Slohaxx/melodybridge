@@ -41,4 +41,6 @@ Bryan Kennedy has written a guide from March 2013 that still holds strong today.
 The next steps are based off his guide, a link is below
 https://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers
 
-Download x.x.x.x and follow the steps for Initial server set up 
+Download https://github.com/Slohaxx/melodybridge/blob/master/Set_up.txt and follow the steps for Initial server set up 
+
+
