@@ -35,7 +35,7 @@ You can find the firewall settings here, and create a new firewall rule with the
 
 https://console.cloud.google.com/networking/firewalls
 
-##Initial Server Configuration
+## Initial Server Configuration
 
 Bryan Kennedy has written a guide from March 2013 that still holds strong today. Check it out fro a great walk through.
 The next steps are based off his guide, a link is below
@@ -43,7 +43,7 @@ https://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-l
 
 Download https://github.com/Slohaxx/melodybridge/blob/master/Set_up.txt and follow the steps for Initial server set up 
 
-# Dowload the project
+## Dowload the project
 
 Download melodybridge git
 
@@ -51,7 +51,7 @@ cd ~
 git clone https://github.com/Slohaxx/melodybridge.git
 
 
-# Webserver
+## Webserver
 
 Install Apache2
 
