@@ -3,11 +3,11 @@ Semester one, 2020
 
 This repository has been built to hold the source and guide to set up.
 
-#MelodyBridge 
+# MelodyBridge 
 
 Melody Bridge has been created to give space online, for a small internet music community. The idea is to have an all in one place spot for the community to listen, share and communicate about music. We use Google Cloud Platform to host our services.
 
-##Introduction
+## Introduction
 
 To run this community we will use the GCP to launch an instance inside the compute engine.
 
