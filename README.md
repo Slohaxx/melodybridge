@@ -1,7 +1,7 @@
 Unitec Cloud Application and development ISCG7444
 Semester one, 2020
 
-This repository has been built to hold documents and guides on how to set this up and for code reference.
+This repository has been built to hold the source and guide to set up.
 
 #MelodyBridge 
 
@@ -42,5 +42,29 @@ The next steps are based off his guide, a link is below
 https://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers
 
 Download https://github.com/Slohaxx/melodybridge/blob/master/Set_up.txt and follow the steps for Initial server set up 
+
+# Dowload the project
+
+Download melodybridge git
+
+cd ~
+git clone https://github.com/Slohaxx/melodybridge.git
+
+
+# Webserver
+
+Install Apache2
+
+Sudo apt-get install apache2
+
+remove the default html directory of apache and move melodybridge to /var/www/html
+
+sudo rm -rf /var/www/html/
+sudo mv /home/lolz/melodybridge/html/ /var/www/
+
+sudo service apache2 restart
+
+
+
 
 
