@@ -33,7 +33,8 @@ We open the following:
 
 You can find the firewall settings here, and create a new firewall rule with the above ports enabled. We also have to do this on the server later
 
-https://console.cloud.google.com/networking/firewalls
+-   [Google Cloud Firewall][1]
+
 
 ## Initial Server Configuration
 
@@ -158,3 +159,4 @@ remove the default html directory of apache and move melodybridge to /var/www/ht
 
 
 
+[1]: https://console.cloud.google.com/networking/firewalls
