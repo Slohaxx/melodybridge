@@ -191,13 +191,13 @@
 
     <paths>
         <!-- basedir is only used if chroot is enabled -->
-        <basedir>/home/lolz/icecast/icecast-2.4.4</basedir>
+        <basedir>/home/lolz/icecast-2.4.4</basedir>
 
         <!-- Note that if <chroot> is turned on below, these paths must both
              be relative to the new root, not the original root -->
-        <logdir>/home/lolz/icecast/icecast-2.4.4/log</logdir>
-        <webroot>/home/lolz/icecast/icecast-2.4.4/web</webroot>
-        <adminroot>/home/lolz/icecast/icecast-2.4.4/admin</adminroot>
+        <logdir>/home/lolz/icecast-2.4.4/log</logdir>
+        <webroot>/home/lolz/icecast-2.4.4/web</webroot>
+        <adminroot>/home/lolz/icecast-2.4.4/admin</adminroot>
         <!-- <pidfile>/usr/local/share/icecast/icecast.pid</pidfile> -->
 
         <!-- Aliases: treat requests for 'source' path as being for 'dest' path
