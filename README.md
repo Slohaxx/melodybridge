@@ -5,7 +5,7 @@ This repository has been built to hold the source and guide to set up.
 
 # MelodyBridge 
 
-Melody Bridge has been created to give space online, for a small internet music community. The idea is to have an all in one place spot for the community to listen, share and communicate about music. We use Google Cloud Platform to host our services.
+Melody Bridge has been created to give space online, for a small internet music community. The idea is to have an all in one spot for the community to listen, share and communicate about music. We use Google Cloud Platform to host our services.
 
 ## Introduction
 
@@ -19,7 +19,7 @@ The services needed will be:
   - InspIRCD Server
   - Liquidsoap
   
-  Once singed up to google cloud and loaded in the GCP console, select from the left menu 'Compute Engine, VM Instances' then create an instance. We updated the name and changed the drive settings. We loaded Ubuntu 16.04 LTS as the machines operating system an extended the hard drive to 50gb
+Once singed up to google cloud and loaded in the GCP console, select from the left menu 'Compute Engine, VM Instances' then create an instance. We updated the name and changed the drive settings. We loaded Ubuntu 16.04 LTS as the machines operating system an extended the hard drive to 50gb
 
 Next step was to open the firewall of the VPC 'Virtual Private Cloud'. 
 
