@@ -40,9 +40,10 @@ You can find the firewall settings here, and create a new firewall rule with the
 
 Bryan Kennedy has written a guide from March 2013 that still holds strong today. Check it out fro a great walk through.
 The next steps are based off his guide, a link is below
+[First five mins on a server][2]
 https://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers
 
-Download https://github.com/Slohaxx/melodybridge/blob/master/Set_up.txt and follow the steps for Initial server set up 
+Download [Set_up.txt][3] and follow the steps for Initial server set up 
 
 ## Dowload the project
 
@@ -53,7 +54,7 @@ Download melodybridge git
 
 ## inspIRCD Server
 
-Ispircd docs located https://docs.inspircd.org/
+Ispircd docs located [docs][4]
 
 To install from source, find and download the latest version
 ** you can leave most options default when the configuration script runs at ./configure
@@ -85,7 +86,7 @@ Install the dependincies
     sudo apt-get install pkg-config
     sudo apt-get install libcurl4-gnutls-dev
 
-Download the latest release from icecast's official website https://icecast.org/download/
+Download the latest release from icecast's official website. [Latest Version][5]
 
     wget http://downloads.xiph.org/releases/icecast/icecast-2.4.4.tar.gz
     tar xvf icecast-2.4.4.tar.gz
@@ -159,4 +160,8 @@ remove the default html directory of apache and move melodybridge to /var/www/ht
 
 
 
-[1]: https://console.cloud.google.com/networking/firewalls
+[1]:https://console.cloud.google.com/networking/firewalls
+[2]:https://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers
+[3]:https://github.com/Slohaxx/melodybridge/blob/master/Set_up.txt
+[4]:https://docs.inspircd.org/
+[5]:https://icecast.org/download/
