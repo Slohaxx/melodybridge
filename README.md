@@ -47,8 +47,8 @@ Download https://github.com/Slohaxx/melodybridge/blob/master/Set_up.txt and foll
 
 Download melodybridge git
 
-cd ~
-git clone https://github.com/Slohaxx/melodybridge.git
+    cd ~
+    git clone https://github.com/Slohaxx/melodybridge.git
 
 ## inspIRCD Server
 
@@ -57,97 +57,97 @@ Ispircd docs located https://docs.inspircd.org/
 To install from source, find and download the latest version
 ** you can leave most options default when the configuration script runs at ./configure
 
-wget https://github.com/inspircd/inspircd/archive/v2.0.29.tar.gz
-tar xvf v2.0.29.tar.gz
-cd inspircd-2.0.29/
-sudo apt-get install gcc
-sudo apt-get install build-essential
-./configure
-make
-make install
+    wget https://github.com/inspircd/inspircd/archive/v2.0.29.tar.gz
+    tar xvf v2.0.29.tar.gz
+    cd inspircd-2.0.29/
+    sudo apt-get install gcc
+    sudo apt-get install build-essential
+    ./configure
+    make
+    make install
 
-cp ~/melodybridge/inspircd.conf /home/lolz/inspircd-2.0.29/run/conf/
-nano /home/lolz/inspircd-2.0.29/run/conf/inspircd.conf
+    cp ~/melodybridge/inspircd.conf /home/lolz/inspircd-2.0.29/run/conf/
+    nano /home/lolz/inspircd-2.0.29/run/conf/inspircd.conf
 
 Now update the melodybridge html file with new IRC server connection
 
-nano /home/lolz/melodybridge/html/index.html
+    nano /home/lolz/melodybridge/html/index.html
 
 ## Icecast server
 
 Install the dependincies
 
-sudo apt-get update
-sudo apt-get install libvorbis-dev
-sudo apt-get install libxslt-dev
-sudo apt-get install libogg
-sudo apt-get install pkg-config
-sudo apt-get install libcurl4-gnutls-dev
+    sudo apt-get update
+    sudo apt-get install libvorbis-dev
+    sudo apt-get install libxslt-dev
+    sudo apt-get install libogg
+    sudo apt-get install pkg-config
+    sudo apt-get install libcurl4-gnutls-dev
 
 Download the latest release from icecast's official website https://icecast.org/download/
 
-wget http://downloads.xiph.org/releases/icecast/icecast-2.4.4.tar.gz
-tar xvf icecast-2.4.4.tar.gz
-cd icecast-2.4.4/
-./configure
-make
-sudo make install
+    wget http://downloads.xiph.org/releases/icecast/icecast-2.4.4.tar.gz
+    tar xvf icecast-2.4.4.tar.gz
+    cd icecast-2.4.4/
+    ./configure
+    make
+    sudo make install
 
 Edit icecast config file with user credentials and host IP address
 
-nano conf/icecast.xml
+    nano conf/icecast.xml
 
 Create log directory and files
 
-mkdir log
-nano log/error.log
-nano log/access.log
+    mkdir log
+    nano log/error.log
+    nano log/access.log
 
 Then to run icecast
 
-screen -S icecast
+    screen -S icecast
 
-icecast -c conf/icecast.xml
+    icecast -c conf/icecast.xml
 
 ## liquidsoap
 
 make new music directory 
 
-cd ~
-mkdir music
-mkdir music/jingles
-mkdir music/main
+    cd ~
+    mkdir music
+    mkdir music/jingles
+    mkdir music/main
 
 You will need to poulate these directories with music you wish to play over the stream. Remember to have to correct emergency mp3 file loaded in sad.liq. This track will play if something goes wrong. I name a track emergency.mp3 which is easily found among a playlist of music.
 
 Install Liquidsoap, change logging ownership and edit sad.liq from the git with your server and credentials 
 
-sudo apt-get install liquidsoap
-sudo chown -R lolz /var/log/liquidsoap/
-nano melodybridge/sad.liq
+    sudo apt-get install liquidsoap
+    sudo chown -R lolz /var/log/liquidsoap/
+    nano melodybridge/sad.liq
 
 Edit the stream and metadata outputs to this server IP
 
-nano /home/lolz/melodybridge/html/index.html
+    nano /home/lolz/melodybridge/html/index.html
 
 Open a screen session and run liquidsoap
 
-screen -S liquidsoap
-cd /home/lolz/melodybridge
-liquidsoap sad.liq
+    screen -S liquidsoap
+    cd /home/lolz/melodybridge
+    liquidsoap sad.liq
 
 ## Webserver
 
 Install Apache2
 
-Sudo apt-get install apache2
+    sudo apt-get install apache2
 
 remove the default html directory of apache and move melodybridge to /var/www/html
 
-sudo rm -rf /var/www/html/
-sudo mv /home/lolz/melodybridge/html/ /var/www/
+    sudo rm -rf /var/www/html/
+    sudo mv /home/lolz/melodybridge/html/ /var/www/
 
-sudo service apache2 restart
+    sudo service apache2 restart
 
 
 
