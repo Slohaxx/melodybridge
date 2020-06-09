@@ -40,8 +40,9 @@ You can find the firewall settings here, and create a new firewall rule with the
 
 Bryan Kennedy has written a guide from March 2013 that still holds strong today. Check it out fro a great walk through.
 The next steps are based off his guide, a link is below
+
 [First five mins on a server][2]
-https://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers
+
 
 Download [Set_up.txt][3] and follow the steps for Initial server set up 
 
