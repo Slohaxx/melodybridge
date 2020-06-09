@@ -44,7 +44,7 @@ The next steps are based off his guide, a link is below
 [First five mins on a server][2]
 
 
-Download [Set_up.txt][3] and follow the steps for Initial server set up 
+Download [Set_up.md][3] and follow the steps for Initial server set up 
 
 ## Dowload the project
 
@@ -163,6 +163,6 @@ remove the default html directory of apache and move melodybridge to /var/www/ht
 
 [1]:https://console.cloud.google.com/networking/firewalls
 [2]:https://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers
-[3]:https://github.com/Slohaxx/melodybridge/blob/master/Set_up.txt
+[3]:https://github.com/Slohaxx/melodybridge/blob/master/Set_up.md
 [4]:https://docs.inspircd.org/
 [5]:https://icecast.org/download/
