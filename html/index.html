@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title> Melody Bridge</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="javascript" type="text/js" href="js/worker.js"/>
+		<link rel="icon" href="images/Icon.png">
+		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Playfair+Display" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		
+	</head>
+<body>
+
+	<div class="wrap">
+			<header>
+				<label for="slide-1-trigger">Home</label>
+				<label for="slide-2-trigger">Station</label>
+				<label for="slide-3-trigger">Features</label>
+				<label for="slide-4-trigger">About</label>
+			</header>
+
+			<input id="slide-1-trigger" type="radio" name="slides" checked>
+			<section class="slide slide-one">
+				<div class="slideBody">
+					<table style="margin: auto;width: 100%;">
+						
+			
+						
+						<tr>
+							<th id="col1" style="width:20%;margin: 0 auto;"><h1 style="margin:0px;">Home of</h1></th>
+							<th id="col2" style="width:60%;">&nbsp;</th> 
+							<th style="width:20%;">&nbsp;</th>
+						</tr>
+						<tr>
+							<td id="col1" style="width:20%;margin: 0 auto;"><img id="logo" src="images/Logo.png"  alt="Melody Bridge" style="display: block;width: 100px;padding: auto;margin: 0 auto;"/></td>
+							<td id="col2" rowspan="2" style="width:60%;">
+								<audio controls>
+									<source id="mainPlayer" src="http://35.225.214.145:8000/rock" type="audio/mpeg">
+								</audio>
+								<p><h1>Live now:</h1></p>
+								</br>
+						Listeners: <span id="listeners1">00</span><span id="listeners2" style="display:none;">00</span></br>
+						Current track: <span id="title1">-</span><span id="title2" style="display:none;">00</span>
+					</p>
+
+							</td>
+							<td rowspan="2" style="width:20%;"></td>
+						</tr>
+						<tr>
+							<td id="col1" colspan="3" style="width:100%;">&nbsp;</td>
+						</tr>
+					</table>
+					<p>&nbsp;</p>
+				
+					<iframe src="https://kiwiirc.com/client/35.225.214.145/?nick=Melody|?#main" style="border:0; width:100%; height:450px;"></iframe>
+				</div>
+			</section>
+			<input id="slide-2-trigger" type="radio" name="slides">
+			<section class="slide slide-two">
+				<div class="slideBody">
+					<table style="margin: auto;width: 100%;">
+						<tr>
+							<th id="col1" style="width:20%;margin: 0 auto;"><h1 style="margin:0px;">Stations of</h1></th>
+							<th id="col2" style="width:60%;">&nbsp;</th> 
+							<th style="width:20%;">&nbsp;</th>
+						</tr>
+						<tr>
+							<td id="col1" style="width:20%;margin: 0 auto;"><img id="logo" src="images/Logo.png"  alt="Melody Bridge" style="display: block;width: 100px;padding: auto;margin: 0 auto;"/></td>
+							<td id="col2" colspan="2" style="width:60%;">
+								<p>Station One</p>
+								<audio id="stationOne" controls>
+									<source src="http://35.225.214.145:8000/sad" type="audio/mpeg">
+								</audio>
+							</td>
+							<td rowspan="2" style="width:20%;">&nbsp;</td>
+						</tr>
+						<tr>
+							<td id="col1" style="width:20%;">&nbsp;</td>
+							<td id="col2" rowspan="2" colspan="2" style="width:60%;">
+								<p>Station Two</p>
+								<audio id="stationTwo" controls>
+									<source src="http://35.225.214.145:8000/rock" type="audio/mpeg">
+								</audio>
+							</td>
+						</tr>
+						</table>
+						
+						<script src="js/worker.js"></script>
+				</div>
+			</section>
+			<input id="slide-3-trigger" type="radio" name="slides">
+			<section class="slide slide-three">
+				<div class="slideBody">
+					<table style="margin: auto;width: 100%;">
+						<tr>
+							<th id="col1" style="width:20%;margin: 0 auto;"><h1 style="margin:0px;">Features of</h1></th>
+							<th id="col2" style="width:60%;">&nbsp;</th> 
+							<th style="width:20%;">&nbsp;</th>
+						</tr>
+						<tr>
+							<td id="col1" style="width:20%;margin: 0 auto;"><img id="logo" src="images/Logo.png"  alt="Melody Bridge" style="display: block;width: 100px;padding: auto;margin: 0 auto;"/></td>
+							<td id="col2" colspan="2" style="width:60%;">
+								<p>Featured song #1</p>
+								
+								<audio id="fPlayerOne" controls>
+									<source src="archive/intro.mp3" type="audio/mpeg">
+								</audio>
+								<a href="intro.mp3" download="intro.mp3">download</a>
+								</form>
+							</td>
+						</tr>
+						<tr>
+							<td id="col1" style="width:20%;">&nbsp;</td>
+							<td id="col2" colspan="2" style="width:60%;">
+								<p>Featured song #2</p>
+								<audio id="fPlayerTwo" controls>
+									<source src="C:\Users\athen\Music\Newworldson - Jamaican Praise Medley" type="audio/mpeg">
+								</audio>
+							</td>
+						</tr>
+					</table>
+				</div>
+				
+				
+			</section>
+			<input id="slide-4-trigger" type="radio" name="slides">
+			<section class="slide slide-four">
+			<div class="slideBody">
+					<table style="margin: auto;width: 100%;">
+						<tr>
+							<th id="col1" style="width:20%;margin: 0 auto;"><h1 style="margin:0px;">About</h1></th>
+							<th id="col2" style="width:60%;">&nbsp;</th> 
+							<th style="width:20%;">&nbsp;</th>
+						</tr>
+						<tr>
+							<td id="col1" style="width:20%;margin: 0 auto;"><img id="logo" src="images/Logo.png"  alt="Melody Bridge" style="display: block;width: 100px;padding: auto;margin: 0 auto;"/></td>
+							<td id="col2" colspan="2" style="width:60%;">
+								<p>Melody Bridge started as a way to connect people worldwide, who all have a shared interest in music, through sharing their music content with each other while being able to communicate to each other about their music. This music can be shared in RealTime for added effectiveness and for the shared experience.</p>
+								<p>By creating a separate space for the music community, we can have our music community create and share content there through a station and view feedback from their listeners through the chatbox. </p>
+							</td>
+							<td style="width:20%;">&nbsp;</td>
+						</tr>
+						<tr>
+							<td id="col1" style="width:20%;">&nbsp;</td>
+							<td id="col2" colspan="2" style="width:60%;">
+								<p> We hope you enjoy creating, sharing and discussing amoung other like-minded people.</p>
+								<p>Our vision for this site is <em>“For a small music community who want to listen to music and share their content live, the Melody bridge is an online radio that will bring the community together in Realtime by having a central location to talk and listen to online radio, whilst having the ability to share music. Unlike other sites where you must pay for/sign up to as an individual or has third party rules and regulations that the individuals must abide by.”</em></p>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</section>	
+		
+        </div>
+		
+
+
+	
+					<script type="text/javascript">
+						function radioTitle() {
+						 
+						jQuery.ajax({
+								url: "http://35.225.214.145:8000/status-json.xsl",
+								//force to handle it as text
+								
+								dataType: "text",
+								async: true,
+								success: function(data)
+								
+								{
+											
+								//data downloaded so we call parseJSON function 
+								//and pass downloaded data
+								var json = jQuery.parseJSON(data);
+								//now json variable contains data in json format
+								//let's display a few items
+								
+								//Station 1
+								// this is the element we're updating that will hold the track title
+								
+									jQuery('#title1').text(json.icestats.source[0].title);
+								// this is the element we're updating that will hold the listeners count
+									jQuery('#listeners1').text(json.icestats.source[0].listeners);   
+
+								//Station 1
+								// this is the element we're updating that will hold the track title
+								
+									jQuery('#title2').text(json.icestats.source[1].title);
+								// this is the element we're updating that will hold the listeners count
+									jQuery('#listeners2').text(json.icestats.source[1].listeners); 									
+							   }
+							 });
+						   };
+						  
+						jQuery(document).ready(function(){
+
+								setTimeout(function(){radioTitle();}, 2000);
+								// we're going to update our html elements / player every 15 seconds
+								setInterval(function(){radioTitle();}, 15000); 
+
+						});
+
+					</script>		
+		
+
+<script src="js/worker.js"></script>
+<script type="text/javascript">
+  var logo = document.getElementById("logo");
+  var col1 = document.getElementById("col1");
+  var col2 = document.getElementById("col2");
+  var firstWidth = screen.width;
+  if (firstWidth <= 765){
+    //welcome.style.display = "none";
+    logo.style.width = '100%';
+	col1.style.width = '30%';
+	col2.style.width = '50%';
+  }
+  if (firstWidth > 765) {
+    logo.style.width = '80%';
+	col1.style.width = '10%';
+	col2.style.width = '70%';
+  }
+  
+  //Change main player
+  var mainPlayer = document.getElementById("mainPlayer");
+  mainPlayer.addEventListener("play", function () {
+      //console.log("it's go time");
+  });
+  
+  function changePlayer(var player, var stationNum){
+	var audioSrc = player.src;
+	mainPlayer.setAttribute('src', audioSrc);
+	mainPlayer.play();
+	player.pause();
+	var title1 = document.getElementById("title1");
+	var title2 = document.getElementById("title2");
+	var listeners1 = document.getElementById("listeners1");
+	var listeners2 = document.getElementById("listeners2");
+	
+	if(stationNum = 1){
+		title1.style.display = 'inline';
+		listeners1.style.display = 'inline';
+		title2.style.display = 'none';
+		listeners2.style.display = 'none';
+	}
+	else if (stationNum = 2){
+		title1.style.display = 'none';
+		listeners1.style.display = 'none';
+		title2.style.display = 'inline';
+		listeners2.style.display = 'inline';
+	}
+	
+  }
+  
+  
+  
+  var stationOne = document.getElementById("stationOne");
+  stationOne.addEventListener("play", changePlayer(stationOne, 1)); 
+  
+  var stationTwo = document.getElementById("stationTwo");
+  stationTwo.addEventListener("play", changePlayer(stationTwo, 2)); 
+  
+</script>
+
+</body>
+</html>
+
+
+
+
+
