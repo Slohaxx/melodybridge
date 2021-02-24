@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title> MelodyBridge</title>
+
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="icon" href="images/Icon.png">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>		
+
+				
+	</head>
+<body>
+
+	<div class="wrap">
+			<header>
+				<label for="slide-1-trigger">Home</label>
+				<label for="slide-2-trigger">Radio</label>
+				<label for="slide-3-trigger">Chat</label>
+				<label for="slide-4-trigger">Melody Tv</label>
+			</header>
+
+			<input id="slide-1-trigger" type="radio" name="slides" checked>
+			<section class="slide slide-one">
+				<h1>Welcome to the MelodyBridge</h1>
+                <p>Join the chat and feel free to tune into some tunes</p>
+
+			</section>
+			
+
+			<input id="slide-2-trigger" type="radio" name="slides">
+			<section class="slide slide-two">
+				<h1>We have the Dankest Music - CIA</h1>
+
+					<audio controls>
+						<source src="http://34.116.108.186:8000/source" type="audio/mpeg">
+					</audio>
+
+				</br>
+				Listeners: <span id="listeners">00</span></br>
+				Current track: <span id="title">-</span>
+			</p>
+
+
+	<script type="text/javascript">
+		function radioTitle() {
+							 
+		jQuery.ajax({
+		url: "http://34.116.108.186:8000/status-json.xsl",
+		//force to handle it as text
+									
+		dataType: "text",
+		async: true,
+		success: function(data)
+			{
+			//data downloaded so we call parseJSON function 
+			//and pass downloaded data
+			var json = jQuery.parseJSON(data);
+			//now json variable contains data in json format
+			//let's display a few items
+			// this is the element we're updating that will hold the track title
+								
+			jQuery('#title').text(json.icestats.source.title);
+			// this is the element we're updating that will hold the listeners count
+			jQuery('#listeners').text(json.icestats.source.listeners);            
+			}
+		});
+	};
+				  
+		jQuery(document).ready(function(){
+	
+		setTimeout(function(){radioTitle();}, 2000);
+		
+		// we're going to update our html elements / player every 15 seconds
+		setInterval(function(){radioTitle();}, 15000); 
+		});
+					
+	</script>
+
+			</section>
+			
+
+			<input id="slide-3-trigger" type="radio" name="slides">
+			<section class="slide slide-three">
+				<h1>#Hardchats</h1>
+				<div><iframe src="https://kiwiirc.com/client/34.116.108.186:6667/?nick=Guest|?&theme=cli#ducktec" 
+                style="border:0; width:80%; height:550px;"></iframe></div>
+			</section>
+			
+
+			<input id="slide-4-trigger" type="radio" name="slides">
+			<section class="slide slide-four">
+				
+			<button onclick="player.playVideo()">Play</button>
+                <button onclick="player.pauseVideo()">Pause</button>
+                <button onclick="player.nextVideo()">Skip</button>
+               <br>
+					<div id="player">
+			  <script>
+ 
+						// load Youtube API code asynchronously
+						var tag = document.createElement('script')
+ 
+						tag.src = "https://www.youtube.com/iframe_api";
+						var firstScriptTag = document.getElementsByTagName('script')[0]
+						firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
+ 						var player // variable to hold new YT.Player() instance
+ 
+						// define onYouTubeIframeAPIReady() function and initialize a Youtube video player when the API has loaded 
+						function onYouTubeIframeAPIReady() {
+					   		player = new YT.Player('player', 
+							{
+        					height: '550',
+        					width: '840',
+							playerVars: {controls:0,
+										 autoplay:0,
+										 disablekb:1,
+										 fs:1,
+										 shuffleOnLoop:true,
+										 modestbranding:1,
+										 rel:1,
+										 showinfo:0,
+										 iv_load_policy:3,
+							  			 listType:'playlist',
+          								 list: 'PLch8MEZ8ze9Vr7ZszzecIGQ0KXJR6eeZ5',
+										 },
+        					videoId: 'dLj3Ks3jZZE',
+        					events: {
+            					'onReady': function(event){						
+    								setTimeout( function() { 
+        								event.target.setShuffle(true); 
+        								event.target.setLoop(true);
+    									}, 2000);
+									
+									$('#play').on('click', function () {
+    								player.playVideo();
+									});
+
+									$('#pause').on('click', function () {
+    								player.pauseVideo();
+									});
+									
+									$('#next').on('click', function () {
+										player.nextVideo();
+									});
+									
+                					var $player = $('#player') // jQuery ref to Youtube iframe
+                					var playerTop = $player.offset().top
+                					$(window).on('scroll', function(){
+                    					var playerState = player.getPlayerState() // get player state
+                    					// if user scrolls down and past the video completely
+										if ($(window).scrollTop() > (playerTop + $player.height())){ 
+                        					if (playerState == 1) // if video is playing
+                            					player.pauseVideo()
+                    					}
+                    					else{ // if user scrolls back up where video shows even a little bit
+                        					if (playerState != 1) // if video is NOT playing
+                            					player.playVideo()
+                    					}
+                					})
+            					},
+            					'onStateChange': function(event){}
+        						}
+    						})
+						}
+						
+						
+						
+						var isiOS = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)/i) != null //boolean check for iOS devices
+						
+						if (isiOS){ // if iOS device
+							player.cueVideoById('video_id')
+						}
+						else{ // non iOS devices, just try to play video
+							player.playVideo()
+						}
+                        
+                        </script>
+					
+				
+	  </section>	
+		
+		</div>
+</body>
+</html>
+
+
+
+
+
