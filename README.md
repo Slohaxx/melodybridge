@@ -1,6 +1,3 @@
-Unitec Cloud Application and development ISCG7444
-Semester one, 2020
-
 This repository has been built to hold the source and guide to set up.
 
 # MelodyBridge 
